@@ -14,7 +14,7 @@ body {
 }
 
 #main_div {
-    width: 35%;
+    width: 500px;
     height: 350px;
     justify-content: center;
     /* border: 1px solid black; */
@@ -31,11 +31,18 @@ body {
         font-family: "Playwrite GB S", serif;
     }
 
+    
+
     #emoji_div {
         display: flex;
         /* border: 1px solid black; */
         justify-content: center;
         flex-direction: row;
+
+        @media screen and (max-width: 420px){
+            flex-direction: column;
+            align-items: center;
+        }
 
         .emoji {
             width: 160px;
@@ -48,13 +55,26 @@ body {
             justify-content: center;
             align-items: center;
             border-radius: 15px;
+            cursor: pointer;
+
 
             img {
-                width: 100px;
-                height: 100px;
+                width: 5rem;
+                height: 5rem;
                 padding: 5px;
+
+                @media screen and (max-width: 420px){
+                    width: 50px;
+                    height: 50px;
+                }
             }
+            
         }
+
+        .emoji:hover, .emoji.active {
+            background-color: rgb(159, 253, 222) ;
+        }
+
 
         p {
             text-align: center;
@@ -62,6 +82,11 @@ body {
             padding: 5px;
             font-size: larger;
             font-family: "Fuzzy Bubbles", serif;
+
+            @media screen and (max-width: 420px){
+                font-size: 1rem;
+            }
+
         }
         
     }
@@ -85,5 +110,84 @@ body {
             border: none;
             color: white;
         }
+
+        button:active {
+            transform: scale(0.9);
+        }
+    }
+}
+
+#feedback_div {
+    width: 480px;
+    height: 250px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px #00000044;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: #E9FFFF;
+
+    h1 {
+        font-size: 2.3rem;
+        color: rgb(9, 110, 210);
+        margin: 5px;
+        padding: 3px;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+        color: rgb(255, 106, 0);
+
+        #feedback {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 22px;
+            padding: 10px;
+            color: red;
+        }
+    }
+
+    p {
+        font-size: 1.6rem;
+        color: rgb(4, 11, 110);
+        font-weight: bold;
+        margin: 15px;
+        padding: 10px;
+        text-align: center;
+        font-family: "Dancing Script", serif;
+    }
+}
+
+
+
+@media screen and (max-width: 550px) {
+    #main_div {
+        width: 400px;
+
+        h1 {
+            font-size: 2rem;
+        }
+    }
+
+    #feedback_div {
+        width: 350px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    #main_div {
+        width: 250px;
+        height: auto;
+        padding: 10px;
+    }
+
+    #main_div h1 {
+        font-size: 1.7rem;
+    }
+
+
+    #feedback_div {
+        width: 320px;
     }
 }
